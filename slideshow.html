@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<button id="left" onclick="left()">Left</button>
+<img id="image" height="600" width="600">
+<button id="rite" onclick="rite()">Right</button>
+</body>
+	<script type="text/javasrcipt">
+	var leftBtn = document.getElementById("left");
+	var riteBtn = document.getElementById("rite");
+
+	var imagesArray = ["1.png", "2.png", "3.png", "4.png", "5.png"];
+	var index = 0;
+
+	var image = document.getElementById("image");
+	image.src = imagesArray[index];
+	
+	function changeImage()
+	{
+		image.src = imagesArray[index];
+	}
+
+	function left()
+	{
+		if(index <= 0)
+		{
+			index = (imagesArray.length - 1);
+		}
+		else
+		{
+			index--;
+		}
+		changeImage();
+	}
+
+	function rite()
+	{
+	if(index >= (imagesArray.length - 1) )
+		{
+			index = 0;
+		}
+		else
+		{
+			index++;
+		}	
+		changeImage();
+	}
+
+
+	</script>
+</html>

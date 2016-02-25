@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="text" id="unsafePassword" value="Enter password">
+	<input type="text" id="unsafePasswordValidation" value="Please validate password"> 
+	<button id="btn" onclick="sendPassword()">VALIDATE PASSWORD</button>
+	
+	<div id="passwordMessage">Click to send password</div>
+</body>
+<script type="text/javascript">
+
+//Copyright unsafe password inc.
+
+var unsafePassword 			 = document.getElementById("unsafePassword");
+var unsafePasswordValidation = document.getElementById("unsafePasswordValidation");
+var button	       			 = document.getElementById("btn");
+var passwordMessage 		 = document.getElementById("passwordMessage");
+
+
+function sendPassword()
+{
+	if(unsafePassword.value == unsafePasswordValidation.value)
+  {
+  	 if(unsafePassword.value.length >= 8)
+  	 {
+  	 	  	passwordMessage.innerHTML = "Nice password brah";
+  	 }
+  	 else
+  	 {
+		  	passwordMessage.innerHTML = "Password is too short brah, needs 8 characters brah";
+  	 }
+  }
+  else
+  {
+  	passwordMessage.innerHTML = "The passwords don't match brah";
+  }
+}
+</script>
+</html>
