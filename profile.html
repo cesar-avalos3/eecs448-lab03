@@ -4,10 +4,12 @@
 
 <!-- Desk texture by naveenvverma, Archer text supplied by the official wiki site, Archer is property of Fx or something copyright etc etc-->
 	<title>TOP SECRET</title>
+	<link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
 	<style type="text/css">
 	body
 	{
 		background-image: url("desk_texture.jpg");
+		font-family: 'Special Elite', cursive;
 		
 	}
 	.main-content
@@ -39,6 +41,7 @@
 		min-height: 495pt;
 		max-width: 310pt;
 		max-height: 495pt;
+		font-size: 11.3pt;
 
 	}
 	.archer-image
@@ -52,7 +55,7 @@
 	{
 		background-color: #c46602;
 		position: absolute;
-		font-size: 20pt;
+		font-size: 10pt;
 		margin-left: 350pt;
 		padding-bottom: 370pt;
 
@@ -145,6 +148,7 @@
 		var blackouts = [blackout01[0],blackout02[0],blackout03[0],blackout04[0], blackout05[0], blackout06[0]];
 		var index = 0;
 
+		//Start censoring this document
 		function coverEverythingUP()
 		{
 			if(index < blackouts.length )
@@ -160,6 +164,7 @@
 			}
 		}
 
+		//daaanger zooooooone
 		function showYoutube()
 		{
 			document.getElementById("youtubeVideo").style.animation = "showUP 2s forwards";
