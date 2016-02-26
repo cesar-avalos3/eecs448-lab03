@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	#content
+	{
+		width: 50%;
+		margin: 0 auto;
+		margin-top: 50pt;
+	}
+
+	input
+	{
+		width: 8%;
+	}
+	#content-text
+	{
+		color: black;
+	}
+	#border-red, #red
+	{
+		background-color: red;
+		color: white;
+	}
+
+	#border-green, #green
+	{
+		background-color: green;
+		color: white;
+	}
+	#border-blue, #blue
+	{
+		background-color: blue;
+		color: white;
+	}
+
+</style>
+	<title></title>
+</head>
+<body>
+<div id="content">
+<div id="content-text">
+	<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+</div>
+	<div class="backgroundColor">
+		Enter the background color - Valid values ranges from 0 to 255
+		<input id="red" value="RED"></input>
+		<input id="green" value="GREEN"></input>
+		<input id="blue" value="BLUE"></input>
+	</div>
+	<div class="borderColorWidth">
+		Enter the border color here - Valid values range is 0-255
+		<input id="border-red" value="RED"></input>		
+		<input id="border-green" value="GREEN"></input>		
+		<input id="border-blue" value="BLUE"></input>		
+		<input id="border-width" value="WIDTH"></input>		
+	</div>
+	<button class="btn" onclick="changeStyle()">Apply the style changes</button>    <button id="btn-rand" onclick="randomizeStyle()">Randomize Values</button>
+	</div>
+</body>
+<script type="text/javascript">
+		
+		var textDiv	   = document.getElementById("content-text");
+
+		var colorInput = document.getElementById("colorInput");
+		var redInput   = document.getElementById("red");
+		var greenInput = document.getElementById("green");
+		var blueInput  = document.getElementById("blue");
+
+
+		var borderRed    = document.getElementById("border-red");
+		var borderGreen  = document.getElementById("border-green");
+		var borderBlue   = document.getElementById("border-blue");
+		var borderWidth  = document.getElementById("border-width");
+
+		var everythingArray = [redInput, greenInput, blueInput, borderRed, borderGreen, borderBlue, borderWidth];
+
+		//Generic function to check if the input is valid, if so return true, else false
+		function validInput(x, lowerLimit, upperLimit)
+		{
+			if(x.value >= lowerLimit && x.value <= upperLimit)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		function changeStyle()
+		{
+			if(validInput(red, 0, 255) && validInput(blue,0, 255) && validInput(green,0, 255) && validInput(borderWidth, 0, 99999))
+			{
+				textDiv.style.backgroundColor = 'rgb('+parseInt(red.value)+', '+parseInt(green.value)+', '+parseInt(blue.value)+')';
+				textDiv.style.border = borderWidth.value+"px solid "+'rgb('+parseInt(borderRed.value)+', '+parseInt(borderGreen.value)+', '+parseInt(borderBlue.value)+')';
+			}
+			else
+			{
+				alert("The valid color values range is 0-255");
+			}
+		}
+
+
+		//Psoodoo randomizes every value in the boxes, neat for debugging purposes
+		function randomizeStyle()
+		{
+			for(i = 0; i < (everythingArray.length - 1); i++)
+			{
+				everythingArray[i].value = Math.floor(Math.random() * 254);
+			}
+			//I want borders to be less explosive
+			everythingArray[everythingArray.length-1].value = Math.floor(Math.random() * 20); 
+		}
+
+</script>
+</html>

@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+
+<!-- Desk texture by naveenvverma, Archer text supplied by the official wiki site, Archer is property of Fx or something copyright etc etc-->
+	<title>TOP SECRET</title>
 	<style type="text/css">
+	body
+	{
+		background-image: url("desk_texture.jpg");
+		
+	}
 	.main-content
 	{
-		width: 80%;
+		min-width: 500px;
+		max-width: 500px;
+		width: 35%;
 		margin: 0 auto;
 		height:100%;
 		min-height: 100%;
-		background-color: #f4d964;
 		margin-top: 60pt;
 		position: relative;
+		padding-bottom: 10pt;
+		box-shadow: 0 0 10px #000;
 	}
-	.rustyImage
+
+	.folderBackground
+	{
+		background-color: #f4d964;
+		padding: 5% 5% 5% 5%;
+
+	}
+	.content-bio
+	{
+		background-color: white;
+		box-shadow: 0 0 10px #000;
+		padding: 5% 5% 5% 5%;
+		min-width: 310pt;
+		min-height: 495pt;
+		max-width: 310pt;
+		max-height: 495pt;
+
+	}
+	.archer-image
 	{
 		position: absolute;
+		margin-left: 5pt;
+		margin-top: -18pt;
+		box-shadow: 0 0 10px #000;
 	}
 	.bio
 	{
@@ -23,15 +54,117 @@
 		position: absolute;
 		font-size: 20pt;
 		margin-left: 350pt;
+		padding-bottom: 370pt;
+
 	}
+	.flap
+	{
+	border-bottom: 30px solid #f4d964;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	height: 0;
+	width: 100px;
+	position: absolute;
+	margin-left: 220pt;
+	margin-top: -65px;
+	line-height: -50pt;
+	font-family: Georgia;
+	}
+
+	#othercover
+	{
+		position: absolute;
+		height: 565pt;
+		width: 400pt;
+		background-color: #dbc35a ;
+		margin-left: -400pt;
+		margin-top:-566pt;
+		min-width: 400pt;
+		min-height: 565pt;
+		box-shadow: -3px 0px 10px #000;
+	}
+
+	@keyframes coverUP
+	{
+		0% {background: rgba(0,0,0,0)}
+		100% {background: rgba(0,0,0,255)}
+	}
+	
+	i
+	{
+		font-style: normal;
+	}
+
+	@keyframes showUP
+	{
+		0% {z-index: 0;}
+		100% {z-index:100}
+	}
+
+	#youtubeVideo
+	{
+		display: block;
+		position: absolute;
+		z-index: -100;
+	}
+
 
 	</style>
 </head>
 <body>
 <div class="main-content">
-	<img src="rusty.jpg" class="rustyImage" width="450" height="600">	
-		<div class="bio"> Dr. Rusty Venture is the current CEO of Venture INC. </div>
+
+<iframe id="youtubeVideo" width="420" height="315" src="https://www.youtube.com/embed/d3D7Y_ycSms" frameborder="0" allowfullscreen></iframe>
+	<div class="folderBackground">
+		<img src="archer.png" class="archer-image" width="30%" height="20%">
+		<div class="content-bio"> 
+		<div class="flap">TOP SECRET</div>
+		<p>
+			Sterling Malory Archer as born in a bar in Tangiers, in northern Morocco, Africa. <i id="hightlight" class="blackout-01"> He spent the first five years </i> of his life being raised by Woodhouse and only seeing his mother a few times such as on Christmas. This made him have an extremely negative view of his motherhood as a young child. It got to the point that when she came home he stated he had no mother and said he hated her. <i id="hightlight" class="blackout-02"> At some point as a child, Malory moved without telling Archer's boarding school, leading to him taking the train home alone and eventually ending </i> up in a police station. Malory had to pick him up and continues to view the situation as not her fault, <i id="hightlight" class="blackout-03"> stating that he could have picked up a phonebook. According to the episode Once Bitten, Archer celebrated his sixth birthday while his mother assisted in overthrowing the government of Guatemala. </i> In reality, the CIA overthrew Guatemala's government over 18-27 June 1954. <i id="hightlight" class="blackout-04"> His birthday by implication is then June 24, 1948. The man who might be his father visited him and gave him a stuffed toy alligator as a gift since at that time he loved them. </i>
+		</p>
+		<p>
+			The man's face is never seen and the reliability of this memory cannot be verified, though the flashback does indicate the man doesn't have a foreign accent, likely ruling out Jakov and the Italian activist,<i id="hightlight" class="blackout-05"> and the man didn't sound like Len Trexler implying that Buddy Rich is Archer's father. Archer is brought out of his delirious state before he can see the man's face. Archer spent all of his primary and secondary educational years at a boarding school for over fifteen years, "or, whatever, the normal number", </i> as Archer describes, where he tried out and participated in the school's lacrosse team. As a result of his lacrosse prowess, Archer was offered a scholarship to <i id="hightlight" class="blackout-06">Johns Hopkins University, his top choice college. However, due to a gunshot wound he sustained, he was not able to attend. Although not explicitly stated, it appears Archer graduated from Georgetown University. </i>
+		</p>
+		1
+		</div>
+	</div>
+	<div id="othercover"></div>
 
 </div>
 </body>
+<script type="text/javascript">
+		
+		var blackout01 = document.getElementsByClassName("blackout-01");
+		var blackout02 = document.getElementsByClassName("blackout-02");
+		var blackout03 = document.getElementsByClassName("blackout-03");
+		var blackout04 = document.getElementsByClassName("blackout-04");
+		var blackout05 = document.getElementsByClassName("blackout-05");
+		var blackout06 = document.getElementsByClassName("blackout-06");
+
+
+		var blackouts = [blackout01[0],blackout02[0],blackout03[0],blackout04[0], blackout05[0], blackout06[0]];
+		var index = 0;
+
+		function coverEverythingUP()
+		{
+			if(index < blackouts.length )
+			{
+				blackouts[index].style.animation = "coverUP 1s forwards";
+				index++;
+				setTimeout(coverEverythingUP, 1000); 
+			}
+			else
+			{
+				//Wait a few seconds to let people contemplate the beauty
+				setTimeout(showYoutube, 2000);
+			}
+		}
+
+		function showYoutube()
+		{
+			document.getElementById("youtubeVideo").style.animation = "showUP 2s forwards";
+		}
+
+		setTimeout(coverEverythingUP, 4000);
+</script>
 </html>
